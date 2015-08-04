@@ -1,0 +1,8 @@
+dependencies: 
+  - recipe: kafka::install
+  - recipe: kafka::default
+    local:  
+      - kafka::install
+    global:  
+      - zookeeper::default
+

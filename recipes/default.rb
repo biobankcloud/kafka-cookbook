@@ -3,7 +3,8 @@
 # Recipe:: default
 #
 
-include_recipe 'kafka::_defaults'
-include_recipe 'kafka::_setup'
-include_recipe 'kafka::_install'
+libpath = File.expand_path '../../../kagent/libraries', __FILE__
+require File.join(libpath, 'default')
+
+node.default.kafka.broker.zookeeper.connect = private_cookbook_ip('zookeeper')
 include_recipe 'kafka::_configure'

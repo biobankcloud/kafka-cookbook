@@ -2,6 +2,8 @@
 # Cookbook Name:: kafka
 # Recipe:: _install
 #
+include_recipe 'kafka::_defaults'
+include_recipe 'kafka::_setup'
 
 kafka_download kafka_local_download_path do
   source kafka_download_uri(kafka_tar_gz)
